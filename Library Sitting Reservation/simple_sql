@@ -1,0 +1,32 @@
+CREATE TABLE `lib`.`tbluser` (
+  `studentID` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `contactInfo` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`studentID`));
+
+
+CREATE TABLE `lib`.`tbl_table` (
+  `tableID` INT NOT NULL,
+  `location` VARCHAR(45) NOT NULL,
+  `capacity` INT NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`tableID`));
+
+
+CREATE TABLE `lib`.`tbl_seat` (
+  `seatID` INT NOT NULL,
+  `tableID` INT NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `studentID` INT NOT NULL,
+  `timestamp` INT NOT NULL,
+  PRIMARY KEY (`seatID`));
+
+
+
+CREATE TABLE `lib`.`tbl_reservation` (
+  `reservationID` INT NOT NULL,
+  `studentID` INT NOT NULL,
+  `tableID` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `timestamp` INT NOT NULL,
+  PRIMARY KEY (`reservationID`));
