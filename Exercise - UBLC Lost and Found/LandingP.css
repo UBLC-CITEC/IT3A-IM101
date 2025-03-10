@@ -2,7 +2,9 @@ body{
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
-   background-image: url(https://t3.ftcdn.net/jpg/02/55/92/44/360_F_255924443_xnmyQh2iHdQKfY5o16mkIVjzJu1t6QDt.jpg);
+   background-image: url(https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg?t=st=1741581427~exp=1741585027~hmac=b25de350951eb089c625854bb9f459e8d44253bc348abf83ac6c89e627ba7a72&w=1380);
+   background-size: cover;
+   background-repeat: no-repeat;
    text-align: center;
 }
 
@@ -13,7 +15,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .notification{
