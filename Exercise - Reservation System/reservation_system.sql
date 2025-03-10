@@ -1,0 +1,1 @@
+SELECT * FROM reservation_system.admin;
