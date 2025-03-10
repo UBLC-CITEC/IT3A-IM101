@@ -1,0 +1,220 @@
+body{
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-image: url(https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg?t=st=1741581427~exp=1741585027~hmac=b25de350951eb089c625854bb9f459e8d44253bc348abf83ac6c89e627ba7a72&w=1380);
+   background-size: cover;
+   background-repeat: no-repeat;
+   text-align: center;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.notification{
+    display: inline-flex;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    padding: 8px 20px;
+    margin: 30px 0;
+}
+
+.new-badge{
+    background-color: #76b900;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 12px;
+    text-transform: uppercase;
+}
+
+.notification-text{
+    color: black;
+    font-size: 14px;
+}
+
+.arrow{
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.hero{
+    text-align: center;
+    margin: 60px 0;
+}
+
+.title {
+    font-size: 72px;
+    color: #021024;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    margin-top: 150px;
+    text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
+}
+
+
+.subtitle{
+    font-size: 18px;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto 70px;
+    margin-top: 150px;
+}
+
+/* Responsive Adjustments for These Elements */
+@media (max-width: 768px) {
+    .title {
+        font-size: 54px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 42px;
+    }
+    
+    .notification {
+        padding: 8px 15px;
+    }
+    
+    .notification-text {
+        font-size: 12px;
+    }
+}
+
+/* Buttons */
+
+.btn-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+h2{
+    color: white;
+}
+
+.btn-login-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.btn-signup-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+
+.btn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    border-color: white;
+    margin: 10px;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+/* Modal (Hidden by Default) */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+/* Show Modal When Targeted */
+.modal:target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #222922;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    color: white;
+}
+
+
+/* Close Button */
+.close {
+    float: right;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
