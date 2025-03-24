@@ -1,0 +1,8 @@
+CREATE TABLE `iventory_siomai`.`employee` (
+  `Employee_ID` INT NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `Contact Info` VARCHAR(45) NOT NULL,
+  `Address` VARCHAR(45) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Employee_ID`));
