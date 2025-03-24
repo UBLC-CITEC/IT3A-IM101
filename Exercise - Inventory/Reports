@@ -1,0 +1,8 @@
+CREATE TABLE `tblreports` (
+  `Reports_ID` int NOT NULL,
+  `Transaction_ID` int NOT NULL,
+  `Admin_ID` int NOT NULL,
+  `Date` date NOT NULL,
+  `Action` varchar(45) NOT NULL,
+  PRIMARY KEY (`Reports_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
