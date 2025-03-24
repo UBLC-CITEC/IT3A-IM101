@@ -1,0 +1,8 @@
+CREATE TABLE `iventory_siomai`.`new_table` (
+  `Item_ID` INT NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `Quantity received` VARCHAR(45) NOT NULL,
+  `Date received` VARCHAR(45) NOT NULL,
+  `Meat type` VARCHAR(45) NOT NULL,
+  `Availability` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Item_ID`));
