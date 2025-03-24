@@ -1,0 +1,8 @@
+CREATE TABLE `tbladmin` (
+  `Admin_ID` int NOT NULL,
+  `Name` varchar(45) NOT NULL,
+  `Role` varchar(45) NOT NULL,
+  `Email` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  PRIMARY KEY (`Admin_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
