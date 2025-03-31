@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindIt - Lost & Found Homepage</title>
+    <title>UBLC Lost & Found Homepage</title>
     <link rel="stylesheet" href="HOMEP.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
                         <!-- Lost Item 1 -->
                         <div class="feed-item">
                             <div class="item-header">
-                                <img src="https://assets.onecompiler.app/4383nuhpc/43cq9mc2b/IMG_0968.jpg" alt="User" class="item-user-pic">
+                                <img src="wallet.png.crdownload" alt="User " class="item-user-pic">
                                 <div class="item-user-info">
                                     <div class="item-username">Kim Besmar</div>
                                     <div class="item-time">Lost 1 day ago</div>
@@ -42,8 +42,12 @@
                             </div>
                             <div class="item-content">
                                 <h3>Lost Wallet</h3>
-                                <p>Lost my brown leather wallet at Building C 3rd floor. It contains my ID, credit cards, and a family photo. Substantial reward offered.</p>
-                                <img src='https://assets.onecompiler.app/4383nuhpc/43cq9mc2b/download.jpg' alt="Lost Wallet" class="item-image">
+                                <p>Lost my black leather wallet at Building C 3rd floor. It contains my ID, credit cards, and a family photo. Substantial reward offered.</p>
+                                <div class="image-container">
+                                    <a href="#modal1">
+                                        <img src='wallet.png.crdownload' alt="Lost Wallet" class="item-image">
+                                    </a>
+                                </div>
                                 <div class="item-details">
                                     <p><strong>Location:</strong> Building C, Third Floor</p>
                                     <p><strong>Time Lost:</strong> March 9, 2025, around 6:00 PM</p>
@@ -55,24 +59,28 @@
                                 <button class="action-btn"><i class="icon">💬</i> Comment</button>
                                 <button class="action-btn"><i class="icon">📞</i> Contact</button>
                             </div>
-                            
-                            <hr style="border: 2px solid black; margin: 10px 0;">
-                            
-                            <div class="feed-item">
+                        </div>
+
+                        <!-- Lost Item 2 -->
+                        <div class="feed-item">
                             <div class="item-header">
-                                <img src="https://assets.onecompiler.app/4383nuhpc/43cq9mc2b/IMG_0968.jpg" alt="User" class="item-user-pic">
+                                <img src="key.png" alt="User " class="item-user-pic">
                                 <div class="item-user-info">
                                     <div class="item-username">Kim Besmar</div>
                                     <div class="item-time">Lost 1 day ago</div>
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h3>Lost Wallet</h3>
-                                <p>Lost my brown leather wallet at Building C 3rd floor. It contains my ID, credit cards, and a family photo. Substantial reward offered.</p>
-                                <img src='https://assets.onecompiler.app/4383nuhpc/43cq9mc2b/download.jpg' alt="Lost Wallet" class="item-image">
+                                <h3>Lost Keys</h3>
+                                <p>Lost my key ring with dorm keys and car keys near the University Library. Has a blue dolphin keychain attached.</p>
+                                <div class="image-container">
+                                    <a href="#modal2">
+                                        <img src='key.png' alt="Lost Keys" class="item-image">
+                                    </a>
+                                </div>
                                 <div class="item-details">
-                                    <p><strong>Location:</strong> Building C, Third Floor</p>
-                                    <p><strong>Time Lost:</strong> March 9, 2025, around 6:00 PM</p>
+                                    <p><strong>Location:</strong> University Library</p>
+                                    <p><strong>Time Lost:</strong> March 7, 2025, around 2:30 PM</p>
                                     <p><strong>Category:</strong> Personal Items</p>
                                 </div>
                             </div>
@@ -87,5 +95,39 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal for Lost Wallet -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <img src='wallet.png.crdownload' alt="Lost Wallet">
+        </div>
+    </div>
+
+    <!-- Modal for Lost Keys -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <img src="key.png" alt="Lost Keys">
+        </div>
+    </div>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.style.transform = 'translateY(-100%)'; // Hide navbar
+            } else {
+                // Scrolling up
+                navbar.style.transform = 'translateY(0)'; // Show navbar
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+    </script>
 </body>
 </html>
