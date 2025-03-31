@@ -1,0 +1,5 @@
+CREATE TABLE `exercise_1`.`supplier` (
+  `SupplierID` INT NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `Contact info` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`SupplierID`));
