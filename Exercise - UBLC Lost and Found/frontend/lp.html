@@ -1,66 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>UBLC Lost & Found</title>
-        <link rel="stylesheet" href="LandingP.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="notification">
-                <span class="new-badge">New</span>
-                <span class="notification-text">Lost Items here at University Of Batangas Lipa City!</span>
-                <span class="arrow">›</span>
-            </div>
-            
-            <div class="hero">
-                <h1 class="title">UBLC<br>Lost and <br>Found</h1>
-                <p class="subtitle">Post reports of missing items with indicated location, view reports of found items in UBLC.</p>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBLC Lost & Found</title>
+    <link rel="stylesheet" href="landingpa.css">
+</head>
+<body>
+    <div class="container">
+        <div class="notification">
+            <span class="new-badge">New</span>
+            <span class="notification-text">Lost Items here at University Of Batangas Lipa City!</span>
+            <span class="arrow">›</span>
+        </div>
+        
+        <div class="hero">
+            <h1 class="title">UBLC<br>Lost and <br>Found</h1>
+            <p class="subtitle">Post reports of missing items with indicated location, view reports of found items in UBLC.</p>
+        </div>
 
-            <!-- Buttons for Login and Sign Up -->
-            <div class="btn-container">
-                <a href="#loginForm" class="btn">Login</a>
-                <a href="#signupForm" class="btn">Sign Up</a>
-            </div>
+        <!-- Buttons for Login and Sign Up -->
+        <div class="btn-container">
+            <a href="#loginForm" class="btn" onclick="openModal('loginForm')">Login</a>
+            <a href="#signupForm" class="btn" onclick="openModal('signupForm')">Sign Up</a>
+        </div>
 
-            <!-- Login Form -->
-            <div id="loginForm" class="modal">
-                <div class="modal-content">
-                    <a href="#" class="close">&times;</a>
-                    <h2>Login</h2>
-                    <form action="homepage (1).html" method="GET">
-                        <label for="login-username">Username:</label>
-                        <input type="text" id="login-username" name="username" required>
-                        
-                        <label for="login-password">Password:</label>
-                        <input type="password" id="login-password" name="password" required>
-                        
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Sign Up Form -->
-            <div id="signupForm" class="modal">
-                <div class="modal-content">
-                    <a href="#" class="close">&times;</a>
-                    <h2>Sign Up</h2>
-                    <form>
-                        <label for="signup-username">Username:</label>
-                        <input type="text" id="signup-username" name="username" required>
-                        
-                        <label for="signup-email">Email:</label>
-                        <input type="email" id="signup-email" name="email" required>
-                        
-                        <label for="signup-password">Password:</label>
-                        <input type="password" id="signup-password" name="password" required>
-                        
-                        <button type="submit">Sign Up</button>
-                    </form>
-                </div>
+        <!-- Error Message (Popup) -->
+        <div id="error-message" class="error-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeErrorPopup()">&times;</span>
+                <p id="error-text">Invalid login credentials! Please try again.</p>
             </div>
         </div>
-    </body>
-</html>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('loginForm')">&times;</span>
+                <h2>Login</h2>
+                <form action="Auth.php" method="POST">
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" name="username" required>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    <input type="hidden" name="login" value="1">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+                <!-- Sign Up Form -->
+        <div id="signupForm" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('signupForm')">&times;</span>
+                <h2>Sign Up</h2>
+                <form action="Auth.php" method="POST">
+                    <label for="signup-username">Username:</label>
+                    <input type="text" id="signup-username" name="signup-username" required>
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                    <input type="hidden" name="signup" value="1">
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open modals
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            // These two lines ensure the modal content is centered
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.style.margin = '15% auto';
+        }
+
+        // Function to close modals
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        // Function to display error message
+        function showError(message) {
+            const errorPopup = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            errorText.textContent = message; // Update error message text
+            errorPopup.style.display = 'block'; // Show the popup
+        }
+
+        // Close the error message when the close button is clicked
+        function closeErrorPopup() {
+            const errorPopup = document.getElementById('error-message');
+            errorPopup.style.display = 'none'; // Hide the popup
+        }
+
+        // Check for error in URL and show the error message
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error) {
+            showError('Invalid login credentials! Please try again.'); // Show a custom error message
+        }
+    </script>
