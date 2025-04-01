@@ -1,14 +1,17 @@
-body{
+/* General Body Styling */
+body {
    font-family: Arial, sans-serif;
    margin: 0;
    padding: 0;
-   background-image: url('https://assets.onecompiler.app/4383nuhpc/43cq9bz32/flat-lay-workstation-with-copy-space-laptop.jpg');
+   background-image: url("flat-lay-workstation-with-copy-space-laptop.jpg");
    background-size: cover;
    background-repeat: no-repeat;
    text-align: center;
+   background-position: center;
 }
 
-.container{
+/* Container Styling */
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -18,7 +21,8 @@ body{
     min-height: 90vh;
 }
 
-.notification{
+/* Notification Styling */
+.notification {
     display: inline-flex;
     align-items: center;
     background-color: whitesmoke;
@@ -27,7 +31,7 @@ body{
     margin: 30px 0;
 }
 
-.new-badge{
+.new-badge {
     background-color: #76b900;
     color: white;
     font-size: 12px;
@@ -38,17 +42,18 @@ body{
     text-transform: uppercase;
 }
 
-.notification-text{
+.notification-text {
     color: black;
     font-size: 14px;
 }
 
-.arrow{
+.arrow {
     margin-left: 10px;
     font-size: 16px;
 }
 
-.hero{
+/* Hero Section Styling */
+.hero {
     text-align: center;
     margin: 60px 0;
 }
@@ -63,8 +68,7 @@ body{
     text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
 }
 
-
-.subtitle{
+.subtitle {
     font-size: 18px;
     color: white;
     max-width: 600px;
@@ -72,34 +76,7 @@ body{
     margin-top: 150px;
 }
 
-/* Responsive Adjustments for These Elements */
-@media (max-width: 768px) {
-    .title {
-        font-size: 54px;
-    }
-    
-    .subtitle {
-        font-size: 16px;
-        padding: 0 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 42px;
-    }
-    
-    .notification {
-        padding: 8px 15px;
-    }
-    
-    .notification-text {
-        font-size: 12px;
-    }
-}
-
-/* Buttons */
-
+/* Button Styling */
 .btn-container {
     position: absolute;
     top: 20px;
@@ -108,39 +85,21 @@ body{
     gap: 15px;
 }
 
-h2{
+h2 {
     color: white;
 }
-
-.btn-login-container{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    color: white;
-    border-radius: 10px;
-    border: 2px solid white;
-}
-
-.btn-signup-container{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    color: white;
-    border-radius: 10px;
-    border: 2px solid white;
-}
-
 
 .btn {
-    background-color: transparent;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     font-size: 20px;
     border-radius: 5px;
-    border-color: white;
+    border-color: black;
     margin: 10px;
     display: inline-block;
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .btn:hover {
@@ -156,38 +115,36 @@ h2{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 1000;
 }
 
-/* Show Modal When Targeted */
-.modal:target {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Modal Content */
+/* Modal Content - Add flex display when visible */
 .modal-content {
     background-color: #222922;
     padding: 20px;
-    width: 30%;
+    width: 90%;
+    max-width: 500px;
     border-radius: 10px;
     border: 2px solid white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
     color: white;
+    position: relative;
+    margin: 15% auto; /* This centers it vertically with some space from top */
 }
-
 
 /* Close Button */
 .close {
-    float: right;
-    font-size: 24px;
-    text-decoration: none;
-    color: white;
+    position: absolute; /* Position absolute to place it in the top right corner */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    font-size: 24px; /* Font size for the close button */
+    color: white; /* Color of the close button */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
 .close:hover {
-    color: red;
+    color: red; /* Change color on hover */
 }
 
 /* Form Styling */
@@ -197,6 +154,7 @@ form {
     gap: 10px;
 }
 
+/* Input Fields */
 input {
     padding: 10px;
     font-size: 14px;
@@ -204,6 +162,7 @@ input {
     border-radius: 5px;
 }
 
+/* Submit Button */
 button[type="submit"] {
     background-color: #28a745;
     color: white;
@@ -218,3 +177,126 @@ button[type="submit"]:hover {
     background-color: #218838;
 }
 
+/* Popup Error Message */
+.error-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.error-popup .popup-content {
+    background-color: #f44336; /* Red background for error */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    position: relative;
+}
+
+.error-popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.error-popup .close:hover {
+    color: #ffdddd;
+}
+
+/* Additional Fix for Modal Content */
+.modal-content form {
+    background-color: #222922;
+    color: white;
+    padding: 15px;
+}
+
+/* Mobile and Tablet Responsiveness */
+
+/* Adjusting title font size on smaller screens */
+@media (max-width: 768px) {
+    .title {
+        font-size: 54px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .hero {
+        margin-top: 100px;
+    }
+
+    /* Adjust the modal content width */
+    .modal-content {
+        width: 60%;
+    }
+
+    /* Adjust buttons to be more touch-friendly */
+    .btn-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    .notification {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 480px) {
+    .title {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .notification {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .error-popup {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 8px 14px;
+    }
+
+    .btn-container {
+        position: relative;
+        top: 0;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
