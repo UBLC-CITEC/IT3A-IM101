@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Users - Embedded Systems</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+</head>
+<body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="#">IM101</a>
+        <!-- Sidebar Toggle-->
+        
+    </nav>
+    <div class="container mt-5">
+        <br>
+        <div class="col-md-12 text-center">
+            <p>Welcome to IM101 - Advanced Database Systems AY 2024 - 2025</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container mt-5">
+        <br>
+        <div class="col-md-12 text-center">
+            <p>Please enjoy the course!</p>
+            <p>Number of Users: </p>
+        </div>
+        <br>
+        <hr>
+        
+    </div>
+    <div class="container mt-5">
+        <br>
+        <div class="col-md-12 text-center">
+            <p>Number of Users </p>
+        </div>
+        <br>
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Date Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        // Fetch the data from the PHP endpoint
+        fetch('/api/readUsers.php')
+            .then(response => response.json())
+            .then(data => {
+                if(data.Result === "Success") {
+                    const users = data.users;
+                    const tbody = document.querySelector('#usersTable tbody');
+                    
+                    users.forEach(us => {
+                        const row = document.createElement('tr');
+                        
+                        // Assuming user object contains id, username, role, date_created.
+                        row.innerHTML = `
+                            <td>${us.id}</td>
+                            <td>${us.un}</td>
+                            <td>${us.contact}</td>
+                           
+                        `;
+                        
+                        tbody.appendChild(row);
+                    });
+                
+                } else {
+                    alert("Failed to get Data");
+                    console.error('Failed to fetch users');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+
+</body>
+</html>
