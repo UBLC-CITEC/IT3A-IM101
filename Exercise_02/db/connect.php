@@ -1,10 +1,10 @@
 <?php
     //
     class Database {
-        private $host = "sql113.infinityfree.com";
-        private $db_name = "if0_38590353_test_db";
-        private $username = "if0_38590353";
-        private $password = "4UNsA58uG6EfB";
+        private $host = "";
+        private $db_name = "";
+        private $username = "";
+        private $password = "";
     
 
         public $conn;
