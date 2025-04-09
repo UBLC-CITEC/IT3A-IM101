@@ -1,0 +1,13 @@
+use study_net_org;
+
+CREATE TABLE posts (
+    PostID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(150) NOT NULL,
+    Content TEXT NOT NULL,
+    GroupID INT NOT NULL,
+    CreatedBy INT NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (GroupID) REFERENCES study_group(GroupID) ON DELETE CASCADE,
+    FOREIGN KEY (CreatedBy) REFERENCES users(UserID) ON DELETE CASCADE
+);
+
